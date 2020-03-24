@@ -1,13 +1,16 @@
-#Main loop#
+###WhiteBored, a really, *really* long project by OrigaimDrag0n###
+###An interactive canvas which can connect over the internet, utilising an IRC server###
+
+##Main loop##
 import turtle
 import threading
 
-#Screen Shotting#
+##Screen Shotting##
 import time
 
 def hints():
 
-    print('Welcome to WhiteBored, a really, *really* long project by Henry Jaspars\n')
+    print('Welcome to WhiteBored, a really, *really* long project by OrigamiDrag0n\n')
     print('-'*71)
     print('Hints: ')
     print('* To draw, drag mouse on the screen')
@@ -220,7 +223,7 @@ class WhiteBored:
                 self.receive_marker.clear()
             elif byte_chunk == '$QUT':
                 self.quit_connection()
-
+                
         else:                                                   #A tuple (coordinates)
 
             try:
@@ -271,7 +274,7 @@ class WhiteBored:
                 print(self.byte_stream)
             self.client.chat(self.receiver_username, self.byte_stream)
             self.stream = []                                    #Resets the stream
-        
+           
     def handshake(self):                                        #Need to catch if user isn't there yet
 
         '''
@@ -316,6 +319,7 @@ class WhiteBored:
 
         self.canvas = turtle.Screen()
 
+        self.canvas.title(f'WhiteBored chat with {self.receiver_username}')
         self.canvas.setup(500, 600)
         self.canvas.screensize(*self.canvas_size)
         
@@ -333,8 +337,8 @@ class WhiteBored:
         self.send_marker.onclick(self.click_handler)
 
         self.thread_running = True
-        self.thread = threading.Thread(target = self.show_stream, daemon = True).start()
-
+        threading.Thread(target = self.show_stream, daemon = True).start()
+        
         self.canvas.mainloop()
         
         self.quit_connection()
