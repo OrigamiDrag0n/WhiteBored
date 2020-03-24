@@ -1,5 +1,5 @@
 # WhiteBored
-A drawing canvas which can be shared over the internet in realtime.
+A drawing canvas which can be shared over the internet in realtime, utilising an IRC server.
 To run an example client, in client.py, connect with two usernames across the same channel.
 # Hints:
 - To draw, drag mouse over the canvas (and release to stop drawing)
